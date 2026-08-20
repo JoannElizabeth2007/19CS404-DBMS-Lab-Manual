@@ -1,5 +1,8 @@
 # Experiment 2: DDL Commands
 
+### NAME : JOANN ELIZABETH SAMUEL
+### REGISTER NUMBER : 212224040139
+
 ## AIM
 To study and implement DDL commands and different types of constraints.
 
@@ -104,124 +107,168 @@ CREATE TABLE Table_Name (
 ```
 
 **Question 1**
---
--- Paste Question 1 here
+Create a table named Tasks with the following columns:
 
-```sql
--- Paste your SQL code below for Question 1
+TaskID as INTEGER
+TaskName as TEXT
+DueDate as DATE
+
+```
+CREATE TABLE Tasks(
+TaskID INTEGER,
+TaskName TEXT,
+DueDate DATE
+);
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="1188" height="370" alt="image" src="https://github.com/user-attachments/assets/e0471a6e-bd8b-4cf9-b8d7-b1c70740a4de" />
 
 **Question 2**
----
--- Paste Question 2 here
+Create a table named Attendance with the following constraints:
+AttendanceID as INTEGER should be the primary key.
+EmployeeID as INTEGER should be a foreign key referencing Employees(EmployeeID).
+AttendanceDate as DATE.
+Status as TEXT should be one of 'Present', 'Absent', 'Leave'.
 
-```sql
--- Paste your SQL code below for Question 2
+```
+CREATE TABLE Attendance(
+AttendanceID INTEGER PRIMARY KEY,
+EmployeeID INTEGER,
+AttendanceDate DATE,
+Status TEXT CHECK(Status IN('Present', 'Absent', 'Leave')),
+FOREIGN KEY(EmployeeID) REFERENCES Employees(EmployeeID)
+);
 ```
 
 **Output:**
+<img width="1202" height="285" alt="image" src="https://github.com/user-attachments/assets/1bd97343-a4e2-41a0-8d79-82d571da6263" />
 
-![Output2](output.png)
 
 **Question 3**
----
--- Paste Question 3 here
+Create a table named Orders with the following columns:
 
-```sql
--- Paste your SQL code below for Question 3
+OrderID as INTEGER
+OrderDate as TEXT
+CustomerID as INTEGER
+```
+CREATE TABLE Orders(
+OrderID INTEGER,
+OrderDate TEXT,
+CustomerID INTEGER
+);
 ```
 
 **Output:**
 
-![Output3](output.png)
 
 **Question 4**
----
--- Paste Question 4 here
+Insert a record with EmployeeID 001, Name Sarah Parker, Position Manager, Department HR, and Salary 60000 into the Employee table.
 
-```sql
--- Paste your SQL code below for Question 4
+```
+INSERT INTO Employee (EmployeeID, Name, Position, Department, Salary)
+VALUES (001,'Sarah Parker','Manager','HR',60000);
 ```
 
 **Output:**
-
-![Output4](output.png)
+<img width="1201" height="245" alt="image" src="https://github.com/user-attachments/assets/c8aa122c-41a9-4167-a259-6cd89de27458" />
 
 **Question 5**
----
--- Paste Question 5 here
-
-```sql
--- Paste your SQL code below for Question 5
+Create a table named Department with the following constraints:
+DepartmentID as INTEGER should be the primary key.
+DepartmentName as TEXT should be unique and not NULL.
+Location as TEXT.
+```
+CREATE TABLE Department(
+DepartmentID INTEGER PRIMARY KEY,
+DepartmentName TEXT UNIQUE NOT NULL,
+Location TEXT
+);
 ```
 
 **Output:**
+<img width="1204" height="289" alt="image" src="https://github.com/user-attachments/assets/449955e8-82bd-468c-818a-42837f6baab6" />
 
-![Output5](output.png)
 
 **Question 6**
----
--- Paste Question 6 here
+Create a table named Locations with the following columns:
 
-```sql
--- Paste your SQL code below for Question 6
+LocationID as INTEGER
+LocationName as TEXT
+Address as TEXT
+```
+CREATE TABLE Locations(
+LocationID INTEGER,
+LocationName TEXT,
+Address TEXT
+);
 ```
 
 **Output:**
+<img width="1205" height="244" alt="image" src="https://github.com/user-attachments/assets/bfd02030-61ce-44c2-a69e-b214f193a090" />
 
-![Output6](output.png)
 
 **Question 7**
----
--- Paste Question 7 here
+Insert a student with RollNo 201, Name David Lee, Gender M, Subject Physics, and MARKS 92 into the Student_details table.
 
-```sql
--- Paste your SQL code below for Question 7
+```
+INSERT INTO Student_details(RollNo, Name, Gender, Subject,MARKS)
+VALUES(201,'David Lee','M','Physics',92);
 ```
 
 **Output:**
+<img width="1204" height="364" alt="image" src="https://github.com/user-attachments/assets/405005da-cc79-474b-b0b9-4b2b1463b501" />
 
-![Output7](output.png)
 
 **Question 8**
----
--- Paste Question 8 here
+Write a SQL query to add a column named Date_of_birth as Date in the Student_details table.
 
-```sql
--- Paste your SQL code below for Question 8
+```
+ALTER TABLE Student_details ADD COLUMN Date_of_birth Date;
 ```
 
 **Output:**
+<img width="1215" height="312" alt="image" src="https://github.com/user-attachments/assets/00cd368c-855c-4c35-a0c6-23cc41050806" />
 
-![Output8](output.png)
 
 **Question 9**
----
--- Paste Question 9 here
+Insert the below data into the Employee table, allowing the Department and Salary columns to take their default values.
 
-```sql
--- Paste your SQL code below for Question 9
+EmployeeID  Name         Position
+----------  -----------  ----------
+4           Emily White  Analyst
+
+Note: The Department and Salary columns will use their default values.
+
+```
+INSERT INTO Employee(EmployeeID, Name,Position)
+VALUES(4,'Emily White','Analyst');
 ```
 
 **Output:**
+<img width="1210" height="366" alt="image" src="https://github.com/user-attachments/assets/20191ae7-f3e0-4d26-8ff8-dec29dd57192" />
 
-![Output9](output.png)
 
 **Question 10**
----
--- Paste Question 10 here
+Write a SQL query to Add a new column mobilenumber as number in the Student_details table.
 
-```sql
--- Paste your SQL code below for Question 10
+Sample table: Student_details
+
+ cid              name             type   notnull     dflt_value  pk
+---------------  ---------------  -----  ----------  ----------  ----------
+0                RollNo           int    0                       1
+1                Name             VARCH  1                       0
+2                Gender           TEXT   1                       0
+3                Subject          VARCH  0                       0
+4                MARKS            INT (  0                       0
+
+```
+ALTER TABLE Student_details ADD COLUMN mobilenumber number;
 ```
 
 **Output:**
-
-![Output10](output.png)
+<img width="1206" height="360" alt="image" src="https://github.com/user-attachments/assets/87cf18e7-1249-4426-a018-26eb2ab4c39f" />
 
 
 ## RESULT
